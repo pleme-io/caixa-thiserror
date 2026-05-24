@@ -11,5 +11,5 @@ on:
         default: patch
 jobs:
   release:
-    uses: pleme-io/substrate/.github/workflows/rust-auto-release.yml@main
+    uses: pleme-io/substrate/.github/workflows/cargo-auto-release.yml@main
     secrets: inherit

@@ -21,6 +21,10 @@ jobs:
     needs: pre_ci
     if: needs.pre_ci.outputs.continue
     runs-on: ubuntu-latest
+    # nightly is allowed to fail: upstream thiserror's build script probe
+    # is sensitive to nightly compiler churn (e.g. -Zrandomize-layout) and
+    # green-on-nightly is best-effort for a vendor mirror.
+    continue-on-error: ${{matrix.rust == 'nightly'}}
     strategy:
       fail-fast: false
       matrix:
